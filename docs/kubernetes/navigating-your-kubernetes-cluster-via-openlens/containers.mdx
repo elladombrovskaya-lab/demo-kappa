@@ -1,0 +1,94 @@
+---
+title: Containers
+slug: containers
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+A **container** is a lightweight, portable runtime environment that packages an application together with everything it needs to run, including its code, runtime, system libraries, and dependencies. Containers ensure that applications run consistently across different environments, from development through to production.
+
+In Kubernetes, containers are the **core unit of execution**, but they are not managed in isolation. Kubernetes always runs containers inside **Pods**, which provide the necessary context for orchestration, networking, and lifecycle management.
+
+### Container images
+
+Containers are created from container images, which are immutable, read-only templates defining:
+
+- Application code
+- Runtime environment
+- Required libraries and dependencies
+- Default configuration and startup commands
+
+Common image formats include Docker-compatible images stored in container registries. Kubernetes pulls these images onto cluster nodes as needed before starting containers.
+
+### Container Runtime
+
+Each Kubernetes node runs a container runtime (such as containerd or CRI-O) responsible for:
+
+- Pulling container images
+- Creating and starting containers
+- Managing container isolation and resource usage
+
+Kubernetes communicates with the container runtime through the Container Runtime Interface (CRI), abstracting away implementation details.
+
+### Container Lifecycle
+
+Containers in Kubernetes follow a defined lifecycle:
+
+1. **Image pull&#x20;**– The container image is retrieved from a registry
+2. **Container creation** – The runtime creates the container
+3. **Startup** – The container executes its entrypoint or command
+4. **Running** – The application runs inside the container
+5. **Termination** – The container stops when the process exits or is terminated
+
+If a container fails, Kubernetes may restart it depending on the Pod’s restart policy and the controlling workload (e.g., Deployment or Job).
+
+### Resource Management
+
+Containers declare resource requests and limits for CPU and memory:
+
+- **Requests** define the minimum resources needed to schedule the container
+- **Limits** define the maximum resources the container is allowed to use
+
+Kubernetes uses these values to make scheduling decisions and enforce fair resource usage across the cluster.
+
+### Configuration and Environment
+
+Containers can be configured dynamically using:
+
+- **Environment variables**
+- **ConfigMaps** for non-sensitive configuration
+- **Secrets** for sensitive data such as credentials or tokens
+- **Command and arguments** to override default behavior
+
+### Health Checks
+
+Kubernetes supports **probes** to monitor container health:
+
+- **Liveness probes** determine when a container should be restarted
+- **Readiness probes** control when a container can receive traffic
+- **Startup probes&#x20;**&#x68;andle slow-starting applications
+
+### Security and Isolation
+
+Containers provide process-level isolation using Linux kernel features such as namespaces and cgroups. Kubernetes enhances container security by supporting:
+
+- Security contexts
+- Read-only filesystems
+- Non-root execution
+- Network and pod-level security policies
+
+### Containers and Pods Relationship
+
+While containers run the application itself, they rely on Pods to:
+
+- Provide networking (IP addresses and ports)
+- Attach shared storage volumes
+- Define restart policies and scheduling rules
+
+In practice, you define containers within Pod specifications, and Kubernetes manages them as part of the Pod lifecycle.
+
+In summary, Containers are the core units used to run applications in Kubernetes, packaging application code and dependencies into a lightweight, portable format. Built from immutable images, containers provide consistent behavior across environments and are managed by Kubernetes through Pods and container runtimes. They support resource controls, configuration via environment variables, ConfigMaps, and Secrets, and include health checks to help maintain application reliability.
+
+<ContentSnippet docRefId="-Hf-8hYV8rCfrAp4rER4T">
+
+</ContentSnippet>

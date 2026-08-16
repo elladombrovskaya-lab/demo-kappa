@@ -1,0 +1,50 @@
+---
+title: Moving Replicas from an Unschedulable Node
+slug: moving-replicas-from-an-unschedulable-node
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+**Context**
+
+When a node becomes unschedulable due to high allocated disk space (above threshold, e.g., 80%), Longhorn prevents new replicas from being scheduled on it. To redistribute workload and maintain volume health, you can manually move replicas to other nodes.
+
+**Steps to Move Replicas**
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    **Identify the unschedulable node. &#x20;**
+
+    Go to the **Nodes&#x20;**&#x73;ection in the Longhorn UI. Look for nodes marked as **Unschedulable&#x20;**&#x64;ue to high disk usage.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Access volume replicas.&#x20;**
+
+    Click on the **Replicas count** for the affected node. A pop-up will show the list of replicas hosted on that node.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Temporarily increase replica count.&#x20;**
+
+    Select the volume whose replica you want to move. Click **Edit** or Update Replica Count. Set the number of replicas to 3. This will trigger Longhorn to create a new replica on a healthy, schedulable node.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Remove the replica from the overloaded node**.
+
+    Once the new replica is healthy, identify the replica on the overloaded node. Click **Delete** to remove it.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Restore replica count**.
+
+    Set the number of replicas back to 2 to maintain your desired redundancy level.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Check the resolution**.
+
+    If sufficient disk space is freed by relocating the replica, the node will automatically become schedulable again. If not, additional replicas—or replicas consuming more disk space—may need to be moved to other nodes to bring the disk usage below the threshold.
+  </WorkflowBlockItem>
+</WorkflowBlock>

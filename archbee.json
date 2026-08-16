@@ -1,0 +1,88 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "path": "overview.mdx",
+        "children": []
+      },
+      {
+        "path": "learn-the-basics.mdx",
+        "children": []
+      },
+      {
+        "path": "pdg-workflow.mdx",
+        "children": []
+      },
+      {
+        "path": "components-and-tools.mdx",
+        "children": []
+      },
+      {
+        "path": "kubernetes.mdx",
+        "children": [
+          {
+            "path": "kubernetes/navigating-your-kubernetes-cluster-via-openlens.mdx",
+            "children": [
+              {
+                "path": "kubernetes/navigating-your-kubernetes-cluster-via-openlens/nodes.mdx",
+                "children": []
+              },
+              {
+                "path": "kubernetes/navigating-your-kubernetes-cluster-via-openlens/pods.mdx",
+                "children": []
+              },
+              {
+                "path": "kubernetes/navigating-your-kubernetes-cluster-via-openlens/containers.mdx",
+                "children": []
+              },
+              {
+                "path": "kubernetes/navigating-your-kubernetes-cluster-via-openlens/statefulsets.mdx",
+                "children": []
+              },
+              {
+                "path": "kubernetes/navigating-your-kubernetes-cluster-via-openlens/persistent-volumes-pvs.mdx",
+                "children": []
+              },
+              {
+                "path": "kubernetes/navigating-your-kubernetes-cluster-via-openlens/persistent-volume-claims-pvcs.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "kubernetes/monitoring-your-kubernetes-cluster-via-grafana-dashboards.mdx",
+            "children": [],
+            "isHidden": false
+          }
+        ]
+      },
+      {
+        "path": "longhorn-on-premises-only.mdx",
+        "children": [
+          {
+            "path": "longhorn-on-premises-only/upgrading-longhorn-engine.mdx",
+            "children": []
+          },
+          {
+            "path": "longhorn-on-premises-only/multiwell-load.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "longhorn-on-premises-only/moving-replicas-from-an-unschedulable-node.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
+  },
+  "shadowDocs": []
+}

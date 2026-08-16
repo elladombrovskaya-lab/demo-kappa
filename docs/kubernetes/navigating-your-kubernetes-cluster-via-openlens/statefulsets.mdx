@@ -1,0 +1,14 @@
+---
+title: StatefulSets
+slug: statefulsets
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+A **StatefulSet** is a workload resource used to manage applications that need to maintain state and stable identity over time. It is designed for stateful applications such as databases, message queues, or any system where each instance needs to be uniquely identifiable and retain its data even if it is restarted or rescheduled.
+
+- Pods created by a StatefulSet are not interchangeable like those in a Deployment. Each pod is assigned a unique, stable name that includes an index, such as app-0 or app-1, and this identity remains the same across restarts or rescheduling. StatefulSets are usually used with a headless Service, which gives each pod a consistent DNS address. This makes it possible for applications to reliably discover and communicate with specific peers, which is especially important for distributed systems and databases that depend on fixed hostnames.
+- StatefulSets manage storage by creating a dedicated PersistentVolumeClaim for each pod based on a volume template. This ensures that every pod has its own persistent storage that is retained across restarts or node changes. When a pod is recreated, it reconnects to the same volume, so its data is preserved. Even if the pod is deleted, the storage can remain available depending on the volume’s reclaim policy, making StatefulSets suitable for workloads where data durability is essential.
+- StatefulSets create, update, and terminate pods in a controlled, predictable order rather than all at once. When scaling up, a new pod is started only after the previous one is running and ready, and when scaling down, pods are removed in reverse order. This ordered behavior is important for applications that require a specific startup or shutdown sequence, such as clustered databases where a primary node must be available before replicas or where graceful shutdown is needed to maintain consistency.
+
+![](https://api.archbee.com/api/optimize/fNEeV2bO-J-V0NK1eH_VR/UK0ralTmRb2MqxwQao0rF_statefulsets.png)

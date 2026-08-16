@@ -1,0 +1,14 @@
+---
+title: Nodes
+slug: nodes
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+A **node** is a worker machine that runs the actual applications and workloads defined by the cluster. Each node can be a physical server or a virtual machine, and it is responsible for hosting containers that are grouped into pods. While the Kubernetes control plane decides what should run and where, nodes are the components that carry out those decisions by executing the workloads.
+
+- Every node runs essential components that let it communicate with the cluster and manage containers, including the kubelet (which ensures pods are running and reports their status), a container runtime like containerd or CRI-O (which pulls images and runs containers), and kube-proxy (which manages networking and traffic between pods and services).
+- Nodes provide the cluster’s compute resources such as CPU, memory, storage, and networking. Kubernetes schedules pods onto nodes based on available resources and defined constraints, and a single node can run multiple pods as long as it has sufficient capacity.
+- Nodes are designed to be replaceable rather than long-lived. If a node becomes unhealthy or fails, Kubernetes detects this and recreates the affected pods on other healthy nodes, enabling resilience and easy scaling of the cluster.
+
+![](https://api.archbee.com/api/optimize/fNEeV2bO-J-V0NK1eH_VR/O6Qy0zwpwJMsPJCU34588_nodes.png)

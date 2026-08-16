@@ -1,0 +1,69 @@
+---
+title: Kubernetes
+slug: kubernetes
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+Kubernetes is a powerful, extensible platform designed to manage and orchestrate containerized applications (such as those packaged with Docker). It provides a consistent way to deploy, scale, monitor, and maintain applications across clusters of machines—whether physical, virtual, on-premises, or in the cloud. Kubernetes automates key operational tasks such as:
+
+- **Scaling** applications automatically based on resource usage or demand
+- **Load balancing** incoming traffic between running services
+- **Rolling updates** and rollbacks for zero-downtime deployments
+- **Self-healing**, automatically restarting or rescheduling failed containers or pods
+- **Resource management**, ensuring workloads get the CPU/memory they need
+
+\{\{Kubernetes}} is commonly used for microservices architectures, where applications are decomposed into smaller, independent components that can be deployed and updated individually. These components include Pods, Containers, Nodes, StatefulSets, Persistent Volumes, Persistent Volume Claims, and more.
+
+For **KAPPA-Automate**, Kubernetes serves as the underlying platform hosting and managing the entire KAPPA-Automate infrastructure. It is responsible for orchestrating:
+
+- **Nodes** – the machines in the cluster
+- **Pods** – the smallest deployable units that run the application components
+- **Containers** – the microservices and workloads inside each Pod
+- **StatefulSets** – for managing stateful components where identity and storage persistence matter
+- **Persistent Volumes (PVs)** – storage resources available to the cluster
+- **Persistent Volume Claims (PVCs)** – storage requests by applications
+
+In OpenLens, these resources can be inspected visually. This ensures KAPPA-Automate runs reliably, consistently, and can scale or recover as needed.
+
+With OpenLens, administrators can continually monitor the health of KAPPA-Automate, detect anomalies, and troubleshoot issues through a centralized visual dashboard, enhancing operational efficiency and reducing time-to-diagnosis.
+
+![](https://api.archbee.com/api/optimize/fNEeV2bO-J-V0NK1eH_VR/W1PnEsr9ZTnhWhRbindBN_kappa-automate-kubernetes-overview.png)
+
+<Tabs>
+  <Tab title="Nodes">
+    - **Key Symptoms**
+      - Node in NotReady state
+      - High CPU/memory/disk pressure•
+      - Network or runtime issues
+    - **Primary Diagnostics**
+      - kubectl describe node to inspect conditions and pressures
+      - OpenLens node view for runtime, resource, and pod status
+      - Check kubelet logs for underlying failures
+    - **Fix/Remediation**
+      - Restart kubelet or Docker/Container
+      - Free disk space or increase resources
+      - Fix CNI/network plugin issues
+      - Resolve hardware or VM resource exhaustion
+  </Tab>
+
+  <Tab title="Pods">
+    - **Key Symptoms**
+      - CrashLoopBackOff due to app or config errors
+      - ImagePullBackOff from registry or auth issues
+      - Initialization or readiness probe failures
+    - **Primary Diagnostics**
+      - kubectl logs for container/app logs
+      - kubectl describe pod to inspect events
+      - Review image, environment variables, and probe configs
+    - **Fix/Remediation**
+      - Fix image name/tag or registry permissions
+      - Tune resource requests/limits to avoid OOM
+      - Correct failing liveness/readiness probes
+      - Fix configuration values causing restarts
+  </Tab>
+
+  <Tab title="Containers">
+
+  </Tab>
+</Tabs>

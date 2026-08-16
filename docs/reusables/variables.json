@@ -1,0 +1,11 @@
+{
+  "Kubernetes": {
+    "contentVariableId": "ImRvGWrU9L6uxGxATHll_",
+    "name": "Kubernetes",
+    "content": "Kubernetes",
+    "scope": "global",
+    "spaceTargetMap": {},
+    "type": "glossary",
+    "description": "It's a powerful, extensible platform designed to manage and orchestrate containerized applications."
+  }
+}

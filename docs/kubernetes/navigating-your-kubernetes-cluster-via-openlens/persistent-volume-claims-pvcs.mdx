@@ -1,0 +1,33 @@
+---
+title: Persistent Volume Claims (PVCs)
+slug: persistent-volume-claims-pvcs
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+A **PersistentVolumeClaim (PVC)** is a way for applications running in Kubernetes to request persistent storage without needing to know the details of the underlying storage system. Instead of interacting directly with disks, file systems, or cloud storage services, a PVC allows a pod to declare its storage requirements—such as the amount of storage needed, the access mode, and the desired StorageClass. Kubernetes then uses this claim to locate an existing PersistentVolume that meets the request or to dynamically provision a new one.
+
+<hint type="info">
+
+</hint>
+
+Once a PVC is bound to a PV, it provides the pod with stable, durable storage that exists independently of the pod’s lifecycle. This means that data stored using a PVC remains intact even if the pod is restarted, rescheduled, or deleted. By separating storage consumption (PVCs) from storage provisioning (PVs), Kubernetes enables portable, scalable, and reliable stateful applications such as databases, file storage services, and applications that require long-lived data.
+
+<ContentSnippet docRefId="cI8nOv9quvKCvtFOA1Q4N">
+
+</ContentSnippet>
+
+**PVCs work in the following way:**
+
+- **Pod requests storage** via a PVC.
+- **Kubernetes looks for a matching PV** (size, access mode, storage class).
+- If a suitable PV exists, it **binds the PVC to the PV**.
+- If no PV exists but dynamic provisioning is enabled, Kubernetes **creates a PV automatically**.
+- The pod mounts the PVC as a **volume**, giving it access to persistent storage.
+
+**Dynamic vs Static Provisioning**
+
+- **Static**: Admin creates PVs ahead of time; PVCs claim them.
+- **Dynamic**: PVC references a StorageClass, and Kubernetes creates the PV automatically.
+
+Dynamic provisioning is very common in cloud-native environments because it scales and removes manual steps.

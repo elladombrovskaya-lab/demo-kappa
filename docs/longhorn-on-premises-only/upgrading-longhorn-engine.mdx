@@ -1,0 +1,76 @@
+---
+title: Upgrading Longhorn Engine
+slug: upgrading-longhorn-engine
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+**Context**
+
+After upgrading Longhorn to a newer version, existing volumes may still be using the previous engine image. To ensure compatibility and access to new features or bug fixes, it's recommended to upgrade the engine image used by each volume.
+
+**Prerequisites**
+
+- Longhorn has already been upgraded to a newer version.
+- You have access to the Longhorn UI.
+- You have basic knowledge of Kubernetes and Longhorn volumes.
+
+**To upgrading Longhorn Engine via UI after a Longhorn upgrade**
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    **Log in to the Longhorn UI**
+
+    Access the Longhorn dashboard via the /longhorn/ route, by authenticating with username and password stored in Kubernetes secret named longhorn-credentials under longhorn-system namespace.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Check Current Engine Image**
+
+    Navigate to the **Volumes** section and check the **State** column. Volumes with an engine image ready for upgrade will display a green circled arrow next to their status.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Verify Available Engine Images**
+
+    Go to Settings → Engine Images. Confirm that a new engine image (matching the upgraded Longhorn version visible in the bottom left of Longhorn dashboard) is listed and in a Ready state.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    **Upgrade Volume Engine Image**
+
+    Return to the **Volumes** page. Identify volumes marked with a green circled arrow in their **State** column—these indicate that an engine image upgrade is available.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Select the volume(s) you wish to upgrade (all volumes with this green circled arrow and only those).
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Open the **Actions&#x20;**&#x64;ropdown menu and click **Upgrade Engine.&#x20;**
+
+    ![](https://api.archbee.com/api/optimize/fNEeV2bO-J-V0NK1eH_VR/f7Lz-CspL5pslIbvLr0Dy_longhorn-1.png)
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Choose the new engine image from the dropdown.
+
+    ![](https://api.archbee.com/api/optimize/fNEeV2bO-J-V0NK1eH_VR/Gg4IW7Xo3NC2CQZpOMZPy_longhorn-3.png)
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Confirm the upgrade.
+
+    ![](https://api.archbee.com/api/optimize/fNEeV2bO-J-V0NK1eH_VR/wzo5voq6pZPO7Sfy_r918_longhorn-2.png)
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Monitor the Upgrade.&#x20;
+
+    The volume will briefly go into a detached or maintenance state. Once complete, the volume should return to Healthy status.
+  </WorkflowBlockItem>
+</WorkflowBlock>
+
+<hint type="info">
+  **Note:&#x20;**&#x41;lways test upgrades in a staging environment before applying to production.
+</hint>
