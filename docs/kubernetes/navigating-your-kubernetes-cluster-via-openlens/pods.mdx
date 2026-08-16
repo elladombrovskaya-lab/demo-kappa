@@ -1,0 +1,24 @@
+---
+title: Pods
+slug: pods
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+A **pod** is the smallest and most fundamental deployable unit in Kubernetes. It represents a single instance of an application running in the cluster and acts as a logical wrapper around one or more containers that need to operate together.
+
+A Pod typically contains **one container**, but in some cases, it may include **multiple tightly coupled containers** that share the same execution environment. These containers are scheduled together on the same node and are designed to work as a single cohesive unit. Common examples include a primary application container and one or more sidecar containers used for logging, monitoring, or configuration management.
+
+All containers within a pod share:
+
+- The **same network namespace&#x20;**(single IP address and port space)
+- Can communicate with each other via localhost
+- Share **storage volumes**
+- Are scheduled on the **same node**
+- Share the same **lifecycle**, meaning they are created, restarted, and terminated together
+
+Pods are ephemeral by nature, meaning they can be created, destroyed, or replaced by Kubernetes at any time. When a Pod fails or needs to be rescheduled, Kubernetes creates a new Pod rather than restarting the existing one. For this reason, Pods are rarely managed directly in production environments. Instead, they are typically created and managed by higher-level controllers such as **Deployments**, **StatefulSets**, **DaemonSets**, or **Jobs**, which handle scaling, self-healing, and availability.
+
+In summary, Pods provide the execution environment for containers in Kubernetes, defining how containers are grouped, networked, and run together. They are the building blocks upon which all Kubernetes workloads are deployed and managed.
+
+![](https://api.archbee.com/api/optimize/fNEeV2bO-J-V0NK1eH_VR/HUxX3bML7S8e_j8eGXNwT_pods.png)

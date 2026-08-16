@@ -1,0 +1,30 @@
+---
+title: Multiwell Load
+slug: multiwell-load
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+KAPPA Automate is a dynamic data analysis platform designed to support complex workflows that begin with data ingestion. In scenarios involving unconventional resources, workflows often require processing data from hundreds or thousands of wells. The single-well ingestion becomes inefficient and impractical at this scale. To address this, KAPPA-Automate provides the Multiwell Load Workflow, a scalable solution for bulk data import. This workflow is part of the external data service which uses a plugin-based architecture, where each plugin acts as a bridge between KAPPA-Automate and your organizations external data source (e.g. SQL Server, Snowflake, Oracle, PI historians, cloud data lakes). This ensures seamless integration of data from diverse technologies into KAPPA-Automates data model without modifying the core system. The workflow handles the data retrieval and transformation, while KAPPA-Automates services handle digestion and synchronization.
+
+### Multiwell Load Process
+
+The multiwell load workflow works in coordination with the **mirroring services.&#x20;**&#x54;here are three stages to the multiwell load workflow. Each created multiwell load will activate the workflow on a user-defined schedule and will update well, well properties, and gauge information on each execution of the workflow.
+
+- **Ingestion**: The multiwell load plugin connects to external data sources, retrieves well and gauge information, and converts it into KAPPA’s standardized internal format. Units are aligned to SI, timestamps normalized to UTC, and data is temporarily stored in the internal load repository for downstream processing.
+- **Digestion**: The system imports data from the internal repository into KAPPA’s data model, creating or updating wells, properties, and gauges while ensuring data consistency. Digestion runs asynchronously, allowing multiple ingestion jobs to execute in parallel.
+- **Mirroring**: After digestion, gauges are configured for periodic synchronization with external databases, maintaining up-to-date time-series data without requiring full reloads. Mirroring uses the identifiers and tags generated during ingestion and applies uniformly to all gauges.
+
+### Multiwell Load Data Source Configuration
+
+Multiwell load data source configuration defines how the external data service interprets and maps database tables, fields, and measurement units into the KAPPA-Automate data model. Each configuration is represented as a JSON object, which encapsulates all settings for the multiwell load data source. The name field defines a unique name identifying the data source. The description field provides a short summary of its purpose or function. The pluginId field specifies the identifier of the plugin or adapter responsible for interfacing with the external data source (SQL Server or Snowflake). The configuration field specifies the required parameters and connection settings essential for the plugin’s functionality.
+
+```javascript
+{
+"name": "KAPPA SQL Multiwell - SPE View",
+"description": "Multiwell datasource for KAPPA SQL Schema",
+"pluginId": "b459783e-bbfc-4355-9983-cb5ab6550e57""configuration": {...}
+}
+```
+
+This section presents the standardized multiwell load configuration template for the KAPPA SQL schema.&#x20;

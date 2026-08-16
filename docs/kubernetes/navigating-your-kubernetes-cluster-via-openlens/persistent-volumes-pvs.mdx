@@ -1,0 +1,21 @@
+---
+title: Persistent Volumes (PVs)
+slug: persistent-volumes-pvs
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+A **PersistentVolume (PV)&#x20;**&#x69;s a piece of storage in the cluster that has been provisioned by an administrator or dynamically created using a StorageClass. Unlike the ephemeral storage provided by a pod’s local filesystem, a PV exists independently of any pod, meaning the data it holds can persist even if the pod that uses it is deleted or restarted. This makes PVs essential for stateful applications like databases, file storage services, or any workload that requires durable data.
+
+- A PersistentVolume (PV) has a lifecycle independent of pods. It defines storage details such as capacity, access modes (e.g., single-node or multi-node access), and the underlying storage type, which can be network-attached storage (like NFS, iSCSI, or cloud storage) or local disks. Pods do not interact with PVs directly; instead, they use PersistentVolumeClaims (PVCs) to request storage, and Kubernetes binds the PVC to an appropriate PV that meets the requirements.
+- The separation of PVs and PVCs provides flexibility and abstraction. Administrators can manage storage resources independently of the workloads using them, while developers simply request the storage they need without worrying about the underlying infrastructure. This also supports dynamic provisioning, where a PVC can automatically create a PV through a configured StorageClass, making it easier to scale storage as applications grow.
+- Once a PV is bound to a PVC, it can be mounted into a pod like any other volume. The data in the PV remains available across pod restarts or migrations to different nodes, ensuring durability. When a PVC is deleted, the PV’s reclaim policy (Retain, Recycle, or Delete) determines what happens to the underlying storage, giving administrators control over data preservation.
+- PersistentVolumes provide a reliable and decoupled way to handle storage in Kubernetes, enabling stateful workloads to run reliably in a dynamic cluster environment.
+
+<hint type="warning">
+  A **PersistentVolume (PV)** is the actual storage in your Kubernetes cluster. Deleting it can be dangerous because **it contains real data your application depends on**.
+
+  **Data loss** - PVs are where your application’s data is actually stored (databases, files, logs, etc.). If you delete a PV, you delete the underlying storage, so all the data is lost permanently. Unlike Pods, which are ephemeral, PVs are meant to be durable.
+
+  **Impact to PVCs and Pods** - PVCs are “claims” that request PVs. If the PV is deleted while PVCs are still bound to it, pods that use that PVC **lose their storage access**. This can **break your applications and/or corrupt data**.
+</hint>

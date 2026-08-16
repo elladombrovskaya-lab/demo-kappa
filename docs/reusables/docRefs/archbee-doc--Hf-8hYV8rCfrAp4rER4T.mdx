@@ -1,0 +1,34 @@
+---
+title: Pods vs Containers
+slug: pods-vs-containers
+docTags: 
+createdAt: Wed Jul 22 2026 22:50:31 GMT+0000 (Coordinated Universal Time)
+---
+
+<VerticalSplit layout="middle">
+  <VerticalSplitItem>
+    **Pods**
+
+    **Purpose:&#x20;**&#x47;roups one or more containers
+
+    - Smallest unit managed by Kubernetes
+    - Shared IP and port space
+    - Shared volumes across containers
+    - Managed by Kubernetes controllers
+    - Scaled via controllers (e.g., Deployments)
+    - Scheduled onto a node
+  </VerticalSplitItem>
+
+  <VerticalSplitItem>
+    **Containers**
+
+    **Purpose:&#x20;**&#x52;uns a single application or process&#x20;
+
+    - Not managed directly
+    - Isolated by default
+    - Image-based filesystem
+    - Controlled by the Pod
+    - Not scalable alone
+    - Not scheduled by Kubernetes
+  </VerticalSplitItem>
+</VerticalSplit>

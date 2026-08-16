@@ -1,0 +1,244 @@
+---
+title: Components and Tools
+slug: components-and-tools
+docTags: 
+createdAt: Sun Aug 16 2026 17:19:37 GMT+0000 (Coordinated Universal Time)
+---
+
+**Table 1. Installation Components**
+
+<table isTableHeaderOn="true" columnWidths="192,469">
+  <tr>
+    <td lightBackgroundColor="#f3f4f6">
+      **Components**
+    </td>
+    <td lightBackgroundColor="#f3f4f6">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Terraform**
+    </td>
+    <td>
+      Terraform is an Infrastructure as Code (IaC) tool used to define and manage cloud infrastructure using code. You write config files to set up resources in AWS, Azure, GCP, or Kubernetes, and Terraform takes care of creating, updating, and deleting them.
+      In the context of KAPPA-Automate, Terraform is used to deploy and update KAPPA-Automate.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Helm**
+    </td>
+    <td>
+      Helm is a package manager for Kubernetes. It uses charts (pre-configured templates) to install and manage applications. Helm simplifies deploying complex apps and makes it easier to upgrade, roll back, or share Kubernetes configurations.
+      In the context of KAPPA-Automate, Helm is used to deploy certain KAPPA-Automate components such as Nginx Ingress.
+    </td>
+  </tr>
+</table>
+
+**Table 2. Kubernetes Components**
+
+<table isTableHeaderOn="true" columnWidths="190,471">
+  <tr>
+    <td lightBackgroundColor="#f3f4f6" align="left">
+      **Components**
+    </td>
+    <td lightBackgroundColor="#f3f4f6" align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Kubernetes**
+    </td>
+    <td align="left">
+      Kubernetes is a platform for managing containerized applications (like those built with Docker). It runs apps across a group of machines, handling tasks like scaling, load balancing, rolling updates, and auto-recovery when things fail. It is ideal for microservices, where an app is split into smaller, independent parts such as pods, containers and nodes.
+      In the context of KAPPA-Automate, Kubernetes is an environment which hosts the entire cluster for managing KAPPA-Automates infrastructure – Nodes, Pods, Containers, Stateful sets, Persistent Volumes and Persistent Volume Claims.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **OpenLens**
+    </td>
+    <td align="left">
+      OpenLens is an open-source Kubernetes dashboard that lets you manage your KAPPA-Automate clusters through a graphical interface. You can view pods, logs, services, nodes, and events in real time.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Lens**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Lens is a Kubernetes dashboard that allows you to manage and monitor your clusters through an intuitive graphical interface. It provides real-time visibility into pods, logs, services, nodes, and events, making it easier to deploy, operate, and troubleshoot Kubernetes workloads across multiple environments from a single place.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Kubectl**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Kubectl is a command-line tool that allows you to deploy applications, check logs and view KAPPA-Automate cluster resources through command line.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **K9S**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      K9s is a terminal-based tool for managing Kubernetes. It gives you a live interactive view of your KAPPA-Automate cluster right from the command line. You can quickly see logs, restart pods, view services, and navigate resources.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Azure CLI**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Azure CLI is a command-line tool for managing Microsoft Azure resources. It lets you create and control services like VMs, storage, and Kubernetes clusters using simple commands.
+      In the context of KAPPA-Automate, this will allow you to manage Azure portals from command line.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **OpenShift CLI**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      The OpenShift CLI is a command-line interface tool used to interact with Red Hat OpenShift, a Kubernetes-based container platform. It provides a powerful way to manage applications, containers, projects, and resources within an OpenShift cluster, much like how kubectl is used with Kubernetes.
+      In the context of KAPPA-Automate, this will allow you to manage OpenShift portals from command line.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **AWS CLI**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      AWS CLI is the command-line interface for Amazon Web Services. It allows you to manage cloud services like EC2, S3, and RDS directly from the terminal.
+      In the context of KAPPA-Automate, this will allow you to manage AWS portals from command line.
+    </td>
+  </tr>
+</table>
+
+**Table 3. Infrastructure Components**
+
+<table isTableHeaderOn="true" columnWidths="192,469">
+  <tr>
+    <td lightBackgroundColor="#f3f4f6" align="left">
+      **Components**
+    </td>
+    <td lightBackgroundColor="#f3f4f6" align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **MongoDB**
+    </td>
+    <td align="left">
+      MongoDB is a NoSQL database that stores data in flexible documents (similar to JSON). It does not need a fixed structure, so it is great for apps where data changes often. It is commonly used for things like user profiles, content systems, and it supports fast queries and indexing.
+      In the context of KAPPA-Automate, MongoDB contains the structure of KAPPA-Automate and stores this as JSON content. It does not contain the actual data within KAPPA-Automate. It also contains the User Task plugin code.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Cassandra**
+    </td>
+    <td align="left">
+      Cassandra is a distributed NoSQL database designed for handling large amounts of data with high availability. It spreads data across many nodes and has no single point of failure. It is optimized for fast writing and is often used in real-time analytics, and logging systems.
+      In the context of KAPPA-Automate, Cassandra stores Vs time series data.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **RabbitMQ**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      RabbitMQ is a message broker that lets services send and receive messages through queues. This helps apps work together without being tightly connected. It supports message routing, retries, and delays, and is useful for background processing and event-driven systems.
+      In the context of KAPPA-Automate, Rabbit MQ handles the message queuing system.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Zeebe**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Zeebe is a workflow engine for managing business processes in microservices systems. It uses visual diagrams (BPMN) to define steps in a process, like order handling or user onboarding. Zeebe is built to scale and handle long-running tasks across multiple services.
+      In the context of KAPPA-Automate, Zeebe is an orchestrator which distributes automated tasks to appropriate worker nodes for processing.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **MinIO**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      MinIO is a lightweight object storage system that is compatible with Amazon S3 APIs. It is used to store files like backups, images, and large datasets. It works well in Kubernetes and is often used in cloud-native apps, data platforms, and AI/ML pipelines.
+      In the context of KAPPA-Automate, MinIO stores all actual data files that are pulled from the historians into KAPPA-Automate.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Longhorn**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Longhorn provides block storage for Kubernetes. It gives apps persistent volumes, so data is not lost when containers or nodes restart. Longhorn supports replication, snapshots, and backups, and works well with tools like Rancher for managing storage in clusters.
+      In the context of KAPPA-Automate, Longhorn is a file system used for on premise clusters (only) to store all actual data that is pulled from the historians into KAPPA-Automate.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Keycloak**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Keycloak is an open-source identity and access management solution by Red Hat. It provides authentication, authorization, single sign-on (SSO), multi-factor authentication (MFA), and user federation with systems like LDAP or Active Directory. Supporting OAuth2, OpenID Connect, and SAML, it enables secure access across apps and includes admin and user consoles.
+      In the context of KAPPA-Automate, Keycloak is used to handle the authentication of users connecting to KAPPA-Automate.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **KEDA**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      KEDA is an open-source Kubernetes component that enables event-driven autoscaling based on external metrics like queue length or custom events, not just CPU or memory. It supports many data sources and can scale workloads to zero.
+      In the context of KAPPA-Automate, KEDA is used to auto-scale background processes.
+    </td>
+  </tr>
+</table>
+
+**Table 4. Platform Extensions**
+
+<table isTableHeaderOn="true" columnWidths="192,469">
+  <tr>
+    <td lightBackgroundColor="#f3f4f6" align="left">
+      **Components**
+    </td>
+    <td lightBackgroundColor="#f3f4f6" align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Swagger**
+    </td>
+    <td align="left">
+      Swagger is a set of open-source tools built around the OpenAPI Specification (OAS) that help developers design, build, document, and consume RESTful web services.
+      Online documentation of the full REST API of KA.
+      In the context of KAPPA-Automate, Swagger is used to configure connections to historians via Post, Put and Delete commands. It can also be used for configuring connections for Multi-Well Loading.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Grafana**
+    </td>
+    <td align="left">
+      Grafana is an open-source analytics and interactive visualization web application. It allows users to query, visualize, alert on, and understand metrics collected from various sources in real time.
+      In the context of KAPPA-Automate, Grafana is used to present all the application dashboards, performance monitoring and user activity logs.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Python**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Python is a versatile programming language used in many fields like web development, data analysis, scripting, and automation. It is commonly used to automate tasks, write tools, and integrate with APIs.
+      In the context of KAPPA-Automate, Python is used to code User Tasks for workflows.
+    </td>
+  </tr>
+</table>
