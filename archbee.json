@@ -16,6 +16,10 @@
         "children": []
       },
       {
+        "path": "architecture.mdx",
+        "children": []
+      },
+      {
         "path": "kubernetes.mdx",
         "children": [
           {
