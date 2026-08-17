@@ -58,10 +58,6 @@
         "path": "longhorn-on-premises-only.mdx",
         "children": [
           {
-            "path": "longhorn-on-premises-only/upgrading-longhorn-engine.mdx",
-            "children": []
-          },
-          {
             "path": "longhorn-on-premises-only/multiwell-load.mdx",
             "children": [],
             "isHidden": false
@@ -71,6 +67,10 @@
             "children": []
           }
         ]
+      },
+      {
+        "path": "longhorn-on-premises-only/upgrading-longhorn-engine.mdx",
+        "children": []
       },
       {
         "categoryName": "Shadow Docs",
