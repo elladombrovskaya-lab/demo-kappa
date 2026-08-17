@@ -16,6 +16,10 @@
         "children": []
       },
       {
+        "path": "test-sync.mdx",
+        "children": []
+      },
+      {
         "path": "architecture.mdx",
         "children": []
       },
